@@ -1,0 +1,53 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.focusroom:focusroom-backend >-------------------
+[INFO] Building FocusRoom Backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ focusroom-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ focusroom-backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 48 source files with javac [debug release 17] to target\classes
+[INFO] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/security/JwtTokenProvider.java: C:\Users\PALANI KATHIRVEL\OneDrive\Desktop\studyroom\focusroom-backend\src\main\java\com\focusroom\security\JwtTokenProvider.java uses or overrides a deprecated API.
+[INFO] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/security/JwtTokenProvider.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/service/SessionService.java:[121,19] cannot find symbol
+  symbol:   method setStatus(com.focusroom.model.RoomMember.MemberStatus)
+  location: variable member of type com.focusroom.model.RoomMember
+[ERROR] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/service/SessionService.java:[122,39] cannot find symbol
+  symbol:   method getFocusTime()
+  location: variable member of type com.focusroom.model.RoomMember
+[ERROR] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/service/SessionService.java:[134,38] cannot find symbol
+  symbol:   method getTotalFocusTime()
+  location: variable entry of type com.focusroom.model.RoomLeaderboard
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.070 s
+[INFO] Finished at: 2026-03-14T20:18:36+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project focusroom-backend: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/service/SessionService.java:[121,19] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.focusroom.model.RoomMember.MemberStatus)
+[ERROR]   location: variable member of type com.focusroom.model.RoomMember
+[ERROR] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/service/SessionService.java:[122,39] cannot find symbol
+[ERROR]   symbol:   method getFocusTime()
+[ERROR]   location: variable member of type com.focusroom.model.RoomMember
+[ERROR] /C:/Users/PALANI KATHIRVEL/OneDrive/Desktop/studyroom/focusroom-backend/src/main/java/com/focusroom/service/SessionService.java:[134,38] cannot find symbol
+[ERROR]   symbol:   method getTotalFocusTime()
+[ERROR]   location: variable entry of type com.focusroom.model.RoomLeaderboard
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
