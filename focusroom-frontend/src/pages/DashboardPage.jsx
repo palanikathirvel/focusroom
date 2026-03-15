@@ -13,6 +13,7 @@ const DashboardPage = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
+  const [joinRoomId, setJoinRoomId] = useState('');
   const [stats, setStats] = useState({
     totalFocusTime: 0,
     sessionsCompleted: 0,
@@ -117,6 +118,18 @@ const DashboardPage = () => {
     }
   };
 
+  const handleJoinById = async (e) => {
+    e.preventDefault();
+    if (!joinRoomId.trim()) return;
+    try {
+      await sessionService.joinRoom(joinRoomId); // Assuming sessionService or roomService has joinRoom
+      window.location.href = `/room/${joinRoomId}`;
+    } catch (error) {
+      // Fallback to direct navigation if join fails but room might exist
+      window.location.href = `/room/${joinRoomId}`;
+    }
+  };
+
   const formatFocusTime = (minutes) => {
     const h = Math.floor(minutes / 60);
     const m = minutes % 60;
@@ -192,6 +205,22 @@ const DashboardPage = () => {
                  </Link>
                </div>
              )}
+          </div>
+
+          <div className="card-notion">
+            <h3 className="text-sm font-semibold text-black uppercase tracking-wider mb-4">Quick Join</h3>
+            <form onSubmit={handleJoinById} className="space-y-3">
+               <input 
+                  type="text" 
+                  value={joinRoomId}
+                  onChange={(e) => setJoinRoomId(e.target.value)}
+                  placeholder="Paste Room ID..." 
+                  className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all text-black placeholder:text-gray-400"
+               />
+               <button type="submit" className="w-full py-2 bg-black text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-gray-800 transition-all">
+                  Join Room
+               </button>
+            </form>
           </div>
 
           <div className="card-notion">

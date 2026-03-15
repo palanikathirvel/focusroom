@@ -247,6 +247,7 @@ const StudyRoomPage = () => {
                         <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                             <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Active Workspace</span>
+                            <span className="text-[10px] font-mono text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100 select-all">ID: {roomId}</span>
                         </div>
                     </div>
                 </div>

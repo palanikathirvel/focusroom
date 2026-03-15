@@ -75,7 +75,10 @@ const StudyRoomsPage = () => {
         }
     };
 
-    const filteredRooms = rooms.filter(r => r.roomName?.toLowerCase().includes(search.toLowerCase()));
+    const filteredRooms = rooms.filter(r => 
+        r.roomName?.toLowerCase().includes(search.toLowerCase()) || 
+        r.roomId?.toLowerCase().includes(search.toLowerCase())
+    );
 
     if (loading) {
         return (
@@ -133,8 +136,9 @@ const StudyRoomsPage = () => {
                                 <div className="flex items-start justify-between mb-6">
                                     <div className="space-y-1 pr-4 min-w-0">
                                         <h3 className="text-xl font-bold text-black truncate">{room.roomName}</h3>
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex flex-col gap-1">
                                             <span className="text-xs text-gray-500 truncate">Host: {userNames[room.createdBy] || 'System'}</span>
+                                            <span className="text-[10px] font-mono text-gray-400 select-all">ID: {room.roomId}</span>
                                         </div>
                                     </div>
                                     <div className={`shrink-0 flex items-center gap-2`}>
