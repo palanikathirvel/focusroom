@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useUserCache } from '../context/UserContext';
+import { BASE_URL } from '../services/apiService';
 
 const statusConfig = {
     STUDYING: { dot: 'bg-green-500', label: 'Studying', bg: 'bg-green-100', text: 'text-green-700' },
@@ -10,7 +11,6 @@ const statusConfig = {
 
 const MemberList = ({ members }) => {
     const { userCache, loadUsers } = useUserCache();
-    const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8080';
 
     useEffect(() => {
         const userIds = members.map(m => m.userId);
@@ -31,7 +31,7 @@ const MemberList = ({ members }) => {
                             <div className="relative shrink-0">
                                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 font-bold text-sm overflow-hidden border border-gray-200 group-hover:bg-red-500 group-hover:text-white transition-colors">
                                     {cachedUser?.profileImageUrl ? (
-                                        <img src={`${API_BASE_URL}${cachedUser.profileImageUrl}`} alt="" className="w-full h-full object-cover" />
+                                        <img src={`${BASE_URL}${cachedUser.profileImageUrl}`} alt="" className="w-full h-full object-cover" />
                                     ) : (
                                         member.userName?.charAt(0).toUpperCase()
                                     )}

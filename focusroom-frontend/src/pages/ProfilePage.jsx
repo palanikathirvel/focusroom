@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { sessionService } from '../services/sessionService';
 import { leaderboardService } from '../services/leaderboardService';
 import { userService } from '../services/userService';
+import { BASE_URL } from '../services/apiService';
 
 const ProfilePage = () => {
     const { user, logout, updateProfileImage } = useAuth();
@@ -18,7 +19,6 @@ const ProfilePage = () => {
     const [uploading, setUploading] = useState(false);
     const fileInputRef = useRef(null);
 
-    const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8080';
 
     useEffect(() => {
         loadUserProfile();
@@ -114,7 +114,7 @@ const ProfilePage = () => {
                 <div className="relative shrink-0">
                     <div className="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 font-bold text-4xl overflow-hidden shadow-inner group-hover:scale-105 transition-transform duration-500 border-4 border-white">
                         {user?.profileImageUrl ? (
-                            <img src={`${API_BASE_URL}${user.profileImageUrl}`} alt="" className="w-full h-full object-cover" />
+                            <img src={`${BASE_URL}${user.profileImageUrl}`} alt="" className="w-full h-full object-cover" />
                         ) : (
                             user?.name?.charAt(0).toUpperCase()
                         )}

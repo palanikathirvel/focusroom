@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BASE_URL } from '../services/apiService';
 
 const NotesSharingPanel = ({ notes, onUpload }) => {
     const [file, setFile] = useState(null);
@@ -21,7 +22,6 @@ const NotesSharingPanel = ({ notes, onUpload }) => {
         }
     };
 
-    const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8080';
 
     const getFileIcon = (fileName) => {
         const ext = fileName.split('.').pop().toLowerCase();
@@ -63,7 +63,7 @@ const NotesSharingPanel = ({ notes, onUpload }) => {
                     notes.map((note) => (
                         <div
                             key={note.id}
-                            onClick={() => window.open(`${API_BASE_URL}${note.fileUrl}`, '_blank')}
+                            onClick={() => window.open(`${BASE_URL}${note.fileUrl}`, '_blank')}
                             className="card-notion group bg-white border border-gray-200 flex flex-col h-full rounded-xl shadow-sm hover:shadow-md hover:border-red-500 cursor-pointer transition-all p-4"
                         >
                             <div className="flex items-start justify-between mb-4">

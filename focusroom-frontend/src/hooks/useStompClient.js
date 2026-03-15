@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
+import { BASE_URL } from '../services/apiService';
 
 export const useStompClient = (roomId) => {
     const [stompClient, setStompClient] = useState(null);
@@ -13,7 +14,7 @@ export const useStompClient = (roomId) => {
     useEffect(() => {
         if (!roomId) return;
 
-        const socket = new SockJS('http://localhost:8080/ws-study');
+        const socket = new SockJS(`${BASE_URL}/ws-study`);
         const client = new Client({
             webSocketFactory: () => socket,
             reconnectDelay: 5000,

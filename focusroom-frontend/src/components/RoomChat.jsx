@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { useUserCache } from '../context/UserContext';
+import { BASE_URL } from '../services/apiService';
 
 const RoomChat = ({ messages, newMessage, setNewMessage, sendChatMessage, connected, user }) => {
     const messagesEndRef = useRef(null);
     const { userCache, loadUsers } = useUserCache();
-    const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8080';
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -33,7 +33,7 @@ const RoomChat = ({ messages, newMessage, setNewMessage, sendChatMessage, connec
                                 <div className="shrink-0 mt-0.5">
                                     <div className="w-7 h-7 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-xs overflow-hidden">
                                         {cachedUser?.profileImageUrl ? (
-                                            <img src={`${API_BASE_URL}${cachedUser.profileImageUrl}`} alt="" className="w-full h-full object-cover" />
+                                            <img src={`${BASE_URL}${cachedUser.profileImageUrl}`} alt="" className="w-full h-full object-cover" />
                                         ) : (
                                             msg.userName?.charAt(0).toUpperCase()
                                         )}
